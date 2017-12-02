@@ -13,7 +13,7 @@ help:
 	@echo
 	@echo "init  -- download or update rt-thread"
 	@echo "build -- compile rt-thread"
-	@echo "boot  -- boot rt-thread on qemu"
+	@echo "boot  -- boot rt-thread on qemu, G=1 for graphic"
 	@echo
 init:
 	git submodule update --init --remote .
