@@ -1,11 +1,14 @@
 # Makefile for rtthread-lab
 
-BSP ?= qemu-vexpress-a9
-BSP_WORKDIR = rt-thread/bsp/$(BSP)/
-BOOT_CMD = qemu-nographic.sh
+BOARD ?= vexpress-a9
+BSP ?= qemu-$(BOARD)
+NET_DEV = lan9118
 
-ifeq ($(G),1)
-  BOOT_CMD := qemu.sh
+BSP_DIR = rt-thread/bsp/$(BSP)/
+BOOT_CMD = qemu-system-arm -M $(BOARD) -net nic,model=$(NET_DEV) -net tap -kernel $(BSP_DIR)/rtthread.elf
+
+ifneq ($(G),1)
+  BOOT_CMD += -nographic
 endif
 
 help:
@@ -21,13 +24,13 @@ init:
 	git submodule update --init --remote .
 
 config:
-	scons --menuconfig -C $(BSP_WORKDIR)
+	scons --menuconfig -C $(BSP_DIR)
 
 build:
-	scons -C $(BSP_WORKDIR)
+	scons -C $(BSP_DIR)
 
 clean:
-	scons -c -C $(BSP_WORKDIR)
+	scons -c -C $(BSP_DIR)
 
 boot:
-	cd $(BSP_WORKDIR) && bash $(BOOT_CMD)
+	sudo $(BOOT_CMD)
