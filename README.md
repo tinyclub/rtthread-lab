@@ -93,10 +93,6 @@ After login, Open 'RT-Thread Lab' in the desktop and it will enter into the work
 
     $ make build
 
-### Clean the output
-
-    $ make clean
-
 ### Boot it on qemu without graphic
 
     $ make boot
@@ -134,6 +130,10 @@ Ping from host to guest:
     $ ping 172.17.217.168
     PING 172.17.217.168 (172.17.217.168) 56(84) bytes of data.
     64 bytes from 172.17.217.168: icmp_seq=1 ttl=255 time=1.96 ms
+
+### Clean the output
+
+    $ make clean
 
 ### More
 
