@@ -11,6 +11,10 @@ ifneq ($(G),1)
   BOOT_CMD += -nographic
 endif
 
+ifneq ($(V),1)
+  BOOT_CMD += 2>/dev/null
+endif
+
 help:
 	@echo "Usage:"
 	@echo
