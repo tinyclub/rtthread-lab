@@ -100,9 +100,37 @@ After login, Open 'RT-Thread Lab' in the desktop and it will enter into the work
 ### Boot it on qemu without graphic
 
     $ make boot
+     \ | /
+    - RT -     Thread Operating System
+     / | \     3.0.1 build Dec  2 2017
+     2006 - 2017 Copyright by rt-thread team
+    lwIP-2.0.2 initialized!
+    hello rt-thread
+    msh />
 
 ### Boot in on qemu with graphic
 
 After booting, switch to the 4th terminal via `CTRL+ALT+4`:
 
     $ make boot G=1
+
+### Configure network
+
+Get host ip:
+
+    $ ifconfig br0 | grep inet
+          inet addr:172.17.217.83  Bcast:172.17.255.255  Mask:255.255.0.0
+
+Configure guest ip as a random static ip address with br0 ip as the gateway:
+
+    msh /> ifconfig e0 172.17.217.168 172.17.217.83 255.255.255.0
+    config : e0
+    IP addr: 172.17.217.168
+    Gateway: 172.17.217.83
+    netmask: 255.255.255.0
+
+Ping from host to guest:
+
+    $ ping 172.17.217.168
+    PING 172.17.217.168 (172.17.217.168) 56(84) bytes of data.
+    64 bytes from 172.17.217.168: icmp_seq=1 ttl=255 time=1.96 ms
