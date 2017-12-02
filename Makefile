@@ -19,9 +19,7 @@ init:
 	git submodule update --init --remote .
 
 build:
-	cd $(BSP_WORKDIR)
-	scons
+	scons -C $(BSP_WORKDIR)
 
 boot:
-	cd $(BSP_WORKDIR)
-	bash $(BOOT_CMD)
+	cd $(BSP_WORKDIR) && bash $(BOOT_CMD)
