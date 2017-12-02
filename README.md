@@ -83,22 +83,18 @@ After login, Open 'RT-Thread Lab' in the desktop and it will enter into the work
 
 ### Update source code
 
-    $ git submodule update --init --remote .
+    $ make init
 
-### Select the qemu-vexpress-a9 BSP
+### Build rt-thread for qemu-vexpress-a9
 
-    $ cd rt-thread/bsp/qemu-vexpress-a9
-
-### Build rt-thread
-
-    $ scons
+    $ make build
 
 ### Boot it on qemu without graphic
 
-    $ bash qemu-nographic.sh
+    $ make boot
 
 ### Boot in on qemu with graphic
 
 After booting, switch to the 4th terminal via `CTRL+ALT+4`:
 
-    $ bash qemu.sh
+    $ make boot G=1
