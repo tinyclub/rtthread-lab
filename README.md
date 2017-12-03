@@ -11,7 +11,7 @@ To easier the learning and development of RT-Thread, this lab is added as a plug
 The following sections introduce the using of RT-Thread on Qemu with Cloud Lab:
 
 * [RT-Thread Lab Homepage](http://tinylab.org/rtthread-lab)
-* [RT-Thread Lab Demo](http://showterm.io/3b7829850b0417690ad41)
+* [RT-Thread Lab Demo](http://showterm.io/942d1782b37d737b04856)
 
 ## Install Docker
 
