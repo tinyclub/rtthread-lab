@@ -85,9 +85,17 @@ After login, Open 'RT-Thread Lab' in the desktop and it will enter into the work
 
     $ make init
 
+### Configure rt-thread
+
+    $ make config
+
 ### Build rt-thread for qemu-vexpress-a9
 
     $ make build
+
+### Clean the output
+
+    $ make clean
 
 ### Boot it on qemu without graphic
 
