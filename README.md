@@ -85,6 +85,14 @@ After login, Open 'RT-Thread Lab' in the desktop and it will enter into the work
 
     $ make init
 
+
+### Checkout the verified commit
+
+    $ pushd rt-thread
+    $ git checkout d629a3c87f
+    $ git clean -fdx
+    $ popd
+
 ### Configure rt-thread
 
     $ make config
